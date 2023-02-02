@@ -13,6 +13,9 @@
 package java_project.homework02;
 
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.Scanner;
 
 public class example {
     public static double degree(double x, double y) {
@@ -20,7 +23,7 @@ public class example {
     
     }
 
-    public static void print(double x, int a, int b) {
+    public static void printResult(double x, int a, int b) {
         if (a > 0 &&  b >= 0){
             int f = (int)x;
             System.out.println(f);
@@ -33,25 +36,41 @@ public class example {
         }
     }
 
-    public static void fileProcess() {
-        try {
-            String pathProject = System.getProperty("user.dir");
-            String pathFile = pathProject.concat("/java_project/homework02/input.txt");
-            File f = new File(pathFile);
+    public static void fileRead() throws Exception {
+        FileReader fr = new FileReader("java_project/homework02/input.txt");
+        Scanner scan = new Scanner(fr);
+        String a;
+        String b;
+        Boolean flag = false;
+        while (scan.hasNextLine()) {
+            if (flag == false) {
+                a = scan.nextLine();
+                flag = true;
+                System.out.println("Первое " + a);
+            }else {
+                b = scan.nextLine();
+                System.out.println("Второе " + b);
+            }
             
-            System.out.println("try");
-            } catch (Exception e) {
-                System.err.println(e);
-            }
-            finally {
-                System.out.println("Финал");
-            }
+            
+        }
+        fr.close();
     }
-public static void main(String[] args) {
-    int a = 3;
-    int b = 0;
-    double c = degree(a, b);
-    print(c, a, b);
-    fileCreate();
-}
+
+    public static void fileWrite (double x) throws Exception {
+        String str = Double.toString(x);
+        FileWriter fw = new FileWriter("java_project/homework02/output.txt");
+        fw.write(str);
+        fw.close();
+    }
+     
+    public static void main(String[] args) throws Exception {
+        int a = 3;
+        int b = 0;
+        double c = degree(a, b); //подумать над дробью!
+        printResult(c, a, b);
+        fileRead();
+        fileWrite(c);
+    
+    }
 }
