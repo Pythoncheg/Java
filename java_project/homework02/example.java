@@ -18,6 +18,17 @@ import java.io.FileWriter;
 import java.util.Scanner;
 
 public class example {
+    public static String extractDigits(String src) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < src.length(); i++) {
+            char c = src.charAt(i);
+            if (Character.isDigit(c)) {
+                builder.append(c);
+            }
+        }
+        return builder.toString();
+    }
+
     public static double degree(double x, double y) {
         return Math.pow(x, y);
     
@@ -36,24 +47,27 @@ public class example {
         }
     }
 
-    public static void fileRead() throws Exception {
+    /**
+     * @throws Exception
+     */
+    public static String fileRead() throws Exception {
         FileReader fr = new FileReader("java_project/homework02/input.txt");
         Scanner scan = new Scanner(fr);
-        String a;
+        String a = "";
         String b;
-        Boolean flag = false;
+        String x;
         while (scan.hasNextLine()) {
-            if (flag == false) {
-                a = scan.nextLine();
-                flag = true;
-                System.out.println("Первое " + a);
-            }else {
-                b = scan.nextLine();
-                System.out.println("Второе " + b);
+            x = scan.nextLine();
+            if (x.contains("a")){
+                a = extractDigits(x);
+                System.out.println("Число " + a);
+            }else{
+                b = extractDigits(x);
+                System.out.println("Степень " + b);
             }
             
-            
         }
+        return a;
         fr.close();
     }
 
@@ -65,12 +79,12 @@ public class example {
     }
      
     public static void main(String[] args) throws Exception {
-        int a = 3;
-        int b = 0;
-        double c = degree(a, b); //подумать над дробью!
-        printResult(c, a, b);
         fileRead();
-        fileWrite(c);
+        // int a =
+        // int b = 0;
+        // double c = degree(a, b); //подумать над дробью!
+        // printResult(c, a, b);
+        // fileWrite(c);
     
     }
 }
