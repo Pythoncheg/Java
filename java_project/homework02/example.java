@@ -22,69 +22,73 @@ public class example {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < src.length(); i++) {
             char c = src.charAt(i);
-            if (Character.isDigit(c)) {
+            if (c == '-' || Character.isDigit(c)) {
                 builder.append(c);
             }
         }
         return builder.toString();
     }
 
-    public static double degree(double x, double y) {
+    public static double degree(int x, int y) {
         return Math.pow(x, y);
     
     }
 
-    public static void printResult(double x, int a, int b) {
+    public static void printResult(double x, int a, int b) throws Exception {
         if (a > 0 &&  b >= 0){
             int f = (int)x;
             System.out.println(f);
+            String str = Integer.toString(f);
+            FileWriter fw = new FileWriter("java_project/homework02/output.txt");
+            fw.write(str);
+            fw.close();
         } 
         if (a == 0 && b == 0) {
-            System.out.println(" не определено");
+            System.out.println("не определено");
+            String str = "не определено";
+            FileWriter fw = new FileWriter("java_project/homework02/output.txt");
+            fw.write(str);
+            fw.close();
         }
         if (a > 0 && b < 0){ 
             System.out.println(x);
+            String str = Double.toString(x);
+            FileWriter fw = new FileWriter("java_project/homework02/output.txt");
+            fw.write(str);
+            fw.close();
         }
     }
 
-    /**
-     * @throws Exception
-     */
-    public static String fileRead() throws Exception {
+
+    public static String fileRead(int flag) throws Exception {
         FileReader fr = new FileReader("java_project/homework02/input.txt");
         Scanner scan = new Scanner(fr);
         String a = "";
-        String b;
+        String b = "";
         String x;
         while (scan.hasNextLine()) {
             x = scan.nextLine();
             if (x.contains("a")){
                 a = extractDigits(x);
-                System.out.println("Число " + a);
             }else{
                 b = extractDigits(x);
-                System.out.println("Степень " + b);
             }
             
         }
-        return a;
         fr.close();
-    }
-
-    public static void fileWrite (double x) throws Exception {
-        String str = Double.toString(x);
-        FileWriter fw = new FileWriter("java_project/homework02/output.txt");
-        fw.write(str);
-        fw.close();
+        if (flag == 1){
+            return a;
+        }else{
+            return b;
+        }
     }
      
     public static void main(String[] args) throws Exception {
-        fileRead();
-        // int a =
-        // int b = 0;
-        // double c = degree(a, b); //подумать над дробью!
-        // printResult(c, a, b);
-        // fileWrite(c);
-    
+        String a = (fileRead(1));
+        String b = (fileRead(2));
+        int x = Integer.parseInt(a);
+        int y = Integer.parseInt(b);
+        double c = degree(x, y);
+        printResult(c, x, y);
     }
 }
