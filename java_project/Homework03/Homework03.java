@@ -13,9 +13,9 @@ import java.util.Arrays;
 public class Homework03 {
 
     public static void main(String[] args) {
-        int m = 10;
-        int n = 10;
-        int[] wall = {6,6};
+        int m = 1000;
+        int n = 1000;
+        int[] wall = {3,4};
         int[][] x = CreatingField(m, n);
         FillArray(x, wall);
         if (wall[0] < 1 && wall[1] < 1){
