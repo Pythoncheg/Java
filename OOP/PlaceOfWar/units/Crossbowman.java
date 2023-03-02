@@ -1,13 +1,17 @@
 package OOP.PlaceOfWar.units;
 
-public class Crossbowman extends BaseClass {
+public class Crossbowman extends Archer {
+    public Crossbowman(String name){
+        super(name, 100, 12, 10, 100, 100);
+    }
 
-    private int bolts;
-    private int max_bolts;
+    @Override
+    public void step() {
 
-    public Crossbowman(String name) {
-        super(name, 100, 1, 12, 10);
-        this.bolts = bolts;
-        this.max_bolts = max_bolts;
+    }
+
+    @Override
+    public String getInfo() {
+        return "Я Арбалетчик и зовут меня - "+name;
     }
 }
