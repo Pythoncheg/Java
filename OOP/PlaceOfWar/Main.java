@@ -2,25 +2,24 @@ package OOP.PlaceOfWar;
 
 import OOP.PlaceOfWar.units.*;
 
+import java.util.ArrayList;
+
 
 public class Main {
     public static void main(String[] args) {
-//        Crossbowman hero1 = new Crossbowman("Arbaletter");
-//        System.out.println(hero1.Name());
-//        Magician hero2 = new Magician("Magamed");
-//        System.out.println(hero2.Name());
-//        Monk hero3 = new Monk("Monahagen");
-//        System.out.println(hero3.Name());
-//        Outlaw hero4 = new Outlaw("Razboing");
-//        System.out.println(hero4.Name());
-//        Peasant hero5 = new Peasant("Krestyanino");
-//        System.out.println(hero5.Name());
-//        Sniper hero6 = new Sniper("Sniperilla");
-//        System.out.println(hero6.Name());
-//        Spearman spearman = new Spearman("Kopeyshuka");
-//        System.out.println(spearman.Name());
-        Crossbowman crossbowman = new Crossbowman("Денис");
-        System.out.println(crossbowman.getInfo());
+        ArrayList<BaseClass> team = new ArrayList<>();
+        team.add(new Crossbowman("Петя"));
+        team.add(new Peasant("Вася"));
+        team.add(new Sniper("Коля"));
+        team.add(new Monk("Игорь"));
+        team.add(new Spearman("Валера"));
+        team.add(new Outlaw("Гена"));
+        team.add(new Magician("Семен"));
+        team.add(new Crossbowman("Петя"));
+        team.add(new Sniper("Иван"));
+        team.add(new Peasant("Григорий"));
+        team.forEach(n -> System.out.println(n.getInfo()));
+
     }
 
 }

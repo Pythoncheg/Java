@@ -16,6 +16,7 @@ public class Sniper extends Archer {
     @Override
     public String getInfo() {
         return "Я Арбалетчик и зовут меня - " + name +
-                "\nМое здоровье: " + hp + " HP, у меня сейчас " + bolts + " стрел.";
+                "\nМое здоровье: " + getHp() +
+                " HP, у меня сейчас " + getClassAbilities() + " стрел.";
     }
 }

@@ -8,6 +8,8 @@ public class Crossbowman extends Archer {
         this.name = name;
     }
 
+
+
     @Override
     public void step() {
 
@@ -17,7 +19,7 @@ public class Crossbowman extends Archer {
     public String getInfo() {
         return 
             "Я Арбалетчик и зовут меня - "+name+
-            "\nМое здоровье: "+hp+" HP, у меня сейчас "+bolts+" стрел.";
+            "\nМое здоровье: "+getHp()+" HP, у меня сейчас "+getClassAbilities()+" стрел.";
 
     }
 }

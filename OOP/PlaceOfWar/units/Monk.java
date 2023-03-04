@@ -1,8 +1,28 @@
 package OOP.PlaceOfWar.units;
 
-public class Monk extends BaseClass {
+public class Monk extends Manaman {
 
-    public Monk(String name) {
-        super(name, 100, 1, 12, 10);
+
+
+    protected String name;
+
+    public Monk(String name){
+        super(100, 12, 10, 100, 100);
+        this.name = name;
+    }
+
+
+
+    @Override
+    public void step() {
+
+    }
+
+    @Override
+    public String getInfo() {
+        return
+                "Я Маг и зовут меня - "+name+
+                        "\nМое здоровье: "+getHp()+" HP, у меня сейчас "+getClassAbilities()+" маны.";
+
     }
 }
