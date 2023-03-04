@@ -20,7 +20,7 @@ public class Main {
 //        Spearman spearman = new Spearman("Kopeyshuka");
 //        System.out.println(spearman.Name());
         Crossbowman crossbowman = new Crossbowman("Денис");
-        crossbowman.getInfo();
+        System.out.println(crossbowman.getInfo());
     }
 
 }
