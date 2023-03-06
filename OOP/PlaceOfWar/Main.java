@@ -18,7 +18,7 @@ public class Main {
         team.add(new Crossbowman("Петя"));
         team.add(new Sniper("Иван"));
         team.add(new Peasant("Григорий"));
-        team.forEach(n -> System.out.println(n.getInfo()));
+        team.forEach(unit -> System.out.println(unit.getInfo()));
 
     }
 

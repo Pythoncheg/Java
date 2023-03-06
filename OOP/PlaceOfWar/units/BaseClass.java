@@ -5,13 +5,15 @@ import java.util.ArrayList;
 
 public abstract class BaseClass implements GameInterface {
     private int hp;
-    private int base_damag;
-    private int base_protection;
+    private int damage;
+    private int attack;
+    private int protection;
 
-    public BaseClass(int hp, int base_damag, int base_protection) {
+    public BaseClass(int hp, int damage, int protection, int attack) {
         this.hp = hp;
-        this.base_damag = base_damag;
-        this.base_protection = base_protection;
+        this.damage = damage;
+        this.protection = protection;
+        this.attack=attack;
     }
 
     protected int getHp() {

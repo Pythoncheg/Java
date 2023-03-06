@@ -5,7 +5,7 @@ public class Magician extends Manaman {
     protected String name;
 
     public Magician(String name){
-        super(100, 12, 10, 100, 100);
+        super(30, -5, 12, 17, 1);
         this.name = name;
     }
 
@@ -20,7 +20,7 @@ public class Magician extends Manaman {
     public String getInfo() {
         return
                 "Я Маг и зовут меня - "+name+
-                        "\nМое здоровье: "+getHp()+" HP, у меня сейчас "+getClassAbilities()+" маны.";
+                        "\nМое здоровье: "+getHp()+" HP.";
 
     }
 }

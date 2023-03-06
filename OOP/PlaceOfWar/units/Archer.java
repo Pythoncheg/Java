@@ -1,17 +1,13 @@
 package OOP.PlaceOfWar.units;
 
 public abstract  class Archer extends BaseClass{
-    private int bolts;
-    private int max_bolts;
+    private int shots;
 
 
-    public Archer(int hp, int base_damag, int base_protection, int bolts, int max_bolts) {
-        super(hp, base_damag, base_protection);
-        this.bolts=bolts;
-        this.max_bolts=max_bolts;
+
+    public Archer(int hp, int damage, int protection, int attack, int shots) {
+        super(hp,damage, protection, attack);
+        this.shots=shots;
     }
-    @Override
-    public int getClassAbilities() {
-        return bolts;
-    }
+
 }

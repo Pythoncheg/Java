@@ -4,7 +4,7 @@ public class Outlaw extends Warrior {
     protected String name;
 
     public Outlaw (String name){
-        super(100, 12, 10, 100, 100);
+        super(10, 2, 10, 100);
         this.name = name;
     }
 
@@ -20,7 +20,7 @@ public class Outlaw extends Warrior {
         return
                 "Я разбойник и зовут меня - "+name+
                         "\nМое здоровье: "+getHp()+
-                        " HP, у меня сейчас "+getClassAbilities()+" ярости.";
+                        " HP.";
 
     }
 }

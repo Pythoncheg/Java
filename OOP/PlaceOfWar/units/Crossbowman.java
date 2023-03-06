@@ -4,7 +4,7 @@ public class Crossbowman extends Archer {
     protected String name;
 
     public Crossbowman(String name){
-        super(100, 12, 10, 100, 100);
+        super(4, 3,3, 6, 16);
         this.name = name;
     }
 
@@ -19,7 +19,7 @@ public class Crossbowman extends Archer {
     public String getInfo() {
         return 
             "Я Арбалетчик и зовут меня - "+name+
-            "\nМое здоровье: "+getHp()+" HP, у меня сейчас "+getClassAbilities()+" стрел.";
+            "\nМое здоровье: "+getHp()+" HP.";
 
     }
 }
