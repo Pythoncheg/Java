@@ -4,7 +4,7 @@ public class Sniper extends Archer {
     protected String name;
 
     public Sniper(String name) {
-        super(100, 12, 10, 100, 100);
+        super(15, 8, 10, 10, 12, 32, 9);
         this.name = name;
     }
 
@@ -15,8 +15,6 @@ public class Sniper extends Archer {
 
     @Override
     public String getInfo() {
-        return "Я Арбалетчик и зовут меня - " + name +
-                "\nМое здоровье: " + getHp() +
-                " HP.";
+        return String.format(" Я арболетчик %s, Здоровье: %d, Скорость: %d", name, getHp(), getSpeed());
     }
 }

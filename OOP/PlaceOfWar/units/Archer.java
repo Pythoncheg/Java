@@ -5,8 +5,8 @@ public abstract  class Archer extends BaseClass{
 
 
 
-    public Archer(int hp, int damage, int protection, int attack, int shots) {
-        super(hp,damage, protection, attack);
+    public Archer(int hp, int min_damage, int max_damage, int protection, int attack, int shots, int speed) {
+        super(hp, min_damage, max_damage, protection, attack, speed);
         this.shots=shots;
     }
 

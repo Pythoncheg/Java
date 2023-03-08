@@ -5,20 +5,26 @@ import java.util.ArrayList;
 
 public abstract class BaseClass implements GameInterface {
     private int hp;
-    private int damage;
+    private int min_damage;
+    private int max_damage;
     private int attack;
     private int protection;
+    private int speed;
 
-    public BaseClass(int hp, int damage, int protection, int attack) {
+    public BaseClass(int hp, int min_damage, int max_damage, int protection, int attack, int speed) {
         this.hp = hp;
-        this.damage = damage;
+        this.min_damage = min_damage;
+        this.max_damage = max_damage;
         this.protection = protection;
         this.attack=attack;
+        this.speed=speed;
     }
 
     protected int getHp() {
         return hp;
     }
+
+    public int getSpeed() {return speed;}
 
     public void Attack() {
 

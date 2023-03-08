@@ -5,7 +5,7 @@ public class Magician extends Manaman {
     protected String name;
 
     public Magician(String name){
-        super(30, -5, 12, 17, 1);
+        super(30, -5, -5, 12, 17, 1, 9);
         this.name = name;
     }
 
@@ -18,9 +18,6 @@ public class Magician extends Manaman {
 
     @Override
     public String getInfo() {
-        return
-                "Я Маг и зовут меня - "+name+
-                        "\nМое здоровье: "+getHp()+" HP.";
-
+        return String.format(" Я маг %s, Здоровье: %d, Скорость: %d", name, getHp(), getSpeed());
     }
 }

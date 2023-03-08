@@ -4,7 +4,7 @@ public class Outlaw extends Warrior {
     protected String name;
 
     public Outlaw (String name){
-        super(10, 2, 10, 100);
+        super(10, 2, 4, 3, 8, 6);
         this.name = name;
     }
 
@@ -17,10 +17,7 @@ public class Outlaw extends Warrior {
 
     @Override
     public String getInfo() {
-        return
-                "Я разбойник и зовут меня - "+name+
-                        "\nМое здоровье: "+getHp()+
-                        " HP.";
+        return String.format(" Я разбойник %s, Здоровье: %d, Скорость: %d", name, getHp(), getSpeed());
 
     }
 }

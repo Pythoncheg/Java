@@ -5,7 +5,7 @@ public class Spearman extends Warrior {
     protected String name;
 
     public Spearman(String name){
-        super(10, 3, 5, 4);
+        super(10, 1, 3, 5, 4, 4);
         this.name = name;
     }
 
@@ -18,11 +18,7 @@ public class Spearman extends Warrior {
 
     @Override
     public String getInfo() {
-        return
-                "Я Копейщик и зовут меня - "+name+
-                        "\nМое здоровье: "+getHp()+
-                        " HP.";
-
+        return String.format(" Я копейщик %s, Здоровье: %d, Скорость: %d", name, getHp(), getSpeed());
     }
 
 }

@@ -4,7 +4,7 @@ public class Crossbowman extends Archer {
     protected String name;
 
     public Crossbowman(String name){
-        super(4, 3,3, 6, 16);
+        super(4, 2,3, 3, 6, 16, 4);
         this.name = name;
     }
 
@@ -17,9 +17,6 @@ public class Crossbowman extends Archer {
 
     @Override
     public String getInfo() {
-        return 
-            "Я Арбалетчик и зовут меня - "+name+
-            "\nМое здоровье: "+getHp()+" HP.";
-
+        return String.format(" Я арбалетчик %s, Здоровье: %d, Скорость: %d", name, getHp(), getSpeed());
     }
 }

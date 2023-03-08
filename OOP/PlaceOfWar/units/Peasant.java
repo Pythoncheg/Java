@@ -4,14 +4,8 @@ public class Peasant extends BaseClass {
     protected String name;
     private int support = 1;
 
-    public Peasant(String name, int hp, int damage, int protection, int attack, int support){
-        super(1, 1, 1, 1);
-        this.name=name;
-        this.support=support;
-
-    }
     public Peasant(String name){
-        super(1, 1, 1, 1);
+        super(1, 1, 1, 1, 3, 3);
         this.name=name;
     }
 
@@ -22,9 +16,7 @@ public class Peasant extends BaseClass {
 
     @Override
     public String getInfo() {
-        return "Я Крестьянин и зовут меня - "+name+
-                "\nМое здоровье: "+getHp()+
-                " HP.";
+        return String.format(" Я крестьянин %s, Здоровье: %d, Скорость: %d", name, getHp(), getSpeed());
     }
 
 }
