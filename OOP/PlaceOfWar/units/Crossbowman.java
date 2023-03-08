@@ -19,4 +19,7 @@ public class Crossbowman extends Archer {
     public String getInfo() {
         return String.format(" Я арбалетчик %s, Здоровье: %d, Скорость: %d", name, getHp(), getSpeed());
     }
+
+
+
 }

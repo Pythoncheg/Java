@@ -20,7 +20,7 @@ public abstract class BaseClass implements GameInterface {
         this.speed=speed;
     }
 
-    protected int getHp() {
+    public int getHp() {
         return hp;
     }
 

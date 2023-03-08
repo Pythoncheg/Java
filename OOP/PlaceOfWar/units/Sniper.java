@@ -15,6 +15,6 @@ public class Sniper extends Archer {
 
     @Override
     public String getInfo() {
-        return String.format(" Я арболетчик %s, Здоровье: %d, Скорость: %d", name, getHp(), getSpeed());
+        return String.format(" Я снайпер %s, Здоровье: %d, Скорость: %d", name, getHp(), getSpeed());
     }
 }

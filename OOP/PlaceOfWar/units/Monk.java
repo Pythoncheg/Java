@@ -20,6 +20,6 @@ public class Monk extends Manaman {
 
     @Override
     public String getInfo() {
-        return String.format(" Я маг %s, Здоровье: %d, Скорость: %d", name, getHp(), getSpeed());
+        return String.format(" Я монах %s, Здоровье: %d, Скорость: %d", name, getHp(), getSpeed());
     }
 }
