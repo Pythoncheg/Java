@@ -1,23 +1,25 @@
 package OOP.PlaceOfWar.units;
 
+import java.util.ArrayList;
+
 public class Magician extends Manaman {
 
     protected String name;
 
-    public Magician(String name){
-        super(30, -5, -5, 12, 17, 1, 9);
+    public Magician(String name, int x, int y, int flag){
+        super(30, -5, -5, 12, 17, 1, 9, x, y, flag);
         this.name = name;
     }
 
 
 
-    @Override
-    public void step() {
 
-    }
 
     @Override
     public String getInfo() {
-        return String.format(" Я маг %s, Здоровье: %d, Скорость: %d", name, getHp(), getSpeed());
+        return String.format(" Я маг %s, Здоровье: %d, Скорость: %d, Координаты: Х: %d, Y: %d.",
+                name, getHp(), getSpeed(), getCoordinats().x, getCoordinats().y);
     }
+
+
 }
