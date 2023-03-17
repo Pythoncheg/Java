@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class FillCommand {
-    static void CreateUnits(ArrayList arr, String command) {
+    static void CreateUnits(ArrayList arr, String command, int numberOfPeople) {
         int r = 0;
         int w_x = 0; // координата Х для белых
         int b_x = 0; // координата Х для черных
         int y = 0;   // общая координата У
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < numberOfPeople; i++) {
             if (command == "white") {
                 r = new Random().nextInt(4, 8);
                 w_x = new Random().nextInt(1, 5);

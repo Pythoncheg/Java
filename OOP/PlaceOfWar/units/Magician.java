@@ -20,6 +20,7 @@ public class Magician extends Manaman {
         return String.format(" Я маг %s, Здоровье: %d, Скорость: %d, Координаты: Х: %d, Y: %d.",
                 name, getHp(), getSpeed(), getCoordinats().x, getCoordinats().y);
     }
+    public String getName() {return name;}
 
 
 }

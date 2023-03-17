@@ -22,6 +22,6 @@ public class Monk extends Manaman {
         return String.format(" Я монах %s, Здоровье: %d, Скорость: %d, Координаты: Х: %d, Y: %d.",
                 name, getHp(), getSpeed(), getCoordinats().x, getCoordinats().y);
     }
-
+    public String getName() {return name;}
 
 }

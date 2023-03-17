@@ -9,10 +9,7 @@ public class Sniper extends Archer {
         super(15, 8, 10, 10, 12, 32, 9, x, y, flag);
         this.name = name;
     }
-
-
-
-
+    public String getName() {return name;}
     @Override
     public String getInfo() {
         return String.format(" Я снайпер %s, Здоровье: %d, Скорость: %d, Координаты: Х: %d, Y: %d.",

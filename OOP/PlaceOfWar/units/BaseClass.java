@@ -3,8 +3,8 @@ package OOP.PlaceOfWar.units;
 import java.util.ArrayList;
 
 public abstract class BaseClass implements GameInterface {
-    private int hp;
-    private int maxHp;
+    protected int hp;
+    protected int maxHp;
     protected int min_damage;
     protected int max_damage;
     protected int attack;
@@ -19,11 +19,11 @@ public abstract class BaseClass implements GameInterface {
         this.min_damage = min_damage;
         this.max_damage = max_damage;
         this.protection = protection;
-        this.attack=attack;
-        this.speed=speed;
-        this.coordinats= new Coordinats(x, y);
-        this.flag=flag;
-        this.maxHp=hp;
+        this.attack = attack;
+        this.speed = speed;
+        this.coordinats = new Coordinats(x, y);
+        this.flag = flag;
+        this.maxHp = hp;
         status = "Stand";
 
 
@@ -33,7 +33,9 @@ public abstract class BaseClass implements GameInterface {
         return this.hp;
     }
 
-    public int getSpeed() {return this.speed;}
+    public int getSpeed() {
+        return this.speed;
+    }
 
     public Coordinats getCoordinats() {
         return coordinats;
@@ -52,7 +54,8 @@ public abstract class BaseClass implements GameInterface {
     public int getFlag() {
         return flag;
     }
-    protected int findNear(ArrayList<BaseClass> list){
+
+    protected int findNear(ArrayList<BaseClass> list) {
         double min = 100;
         int index = 0;
         for (int i = 0; i < list.size(); i++) {
@@ -63,8 +66,18 @@ public abstract class BaseClass implements GameInterface {
         }
         return index;
     }
-    @Override
-    public void Step(ArrayList<BaseClass> ally, ArrayList<BaseClass> enemy){
 
+    @Override
+    public void Step(ArrayList<BaseClass> ally, ArrayList<BaseClass> enemy) {
+    }
+
+    public int findWounded(ArrayList<BaseClass> team) {
+        int index = 0;
+        for (int i = 0; i < team.size(); i++) {
+            if (team.get(i).hp < team.get(i).maxHp) {
+                index += i;
+            }
+        }
+        return index;
     }
 }

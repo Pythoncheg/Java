@@ -18,11 +18,13 @@ public class Peasant extends BaseClass {
         return String.format(" Я крестьянин %s, Здоровье: %d, Скорость: %d, Координаты: Х: %d, Y: %d.",
                 name, getHp(), getSpeed(), getCoordinats().x, getCoordinats().y);
     }
-
-
+    public String getName() {return name;}
 
     @Override
     public void Step(ArrayList ally, ArrayList enemy) {
-
+        if (status.equals("Die")) return;
+        else {
+            status = "Stand";
+        }
     }
 }

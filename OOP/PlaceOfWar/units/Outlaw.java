@@ -19,6 +19,6 @@ public class Outlaw extends Warrior {
                 name, getHp(), getSpeed(), getCoordinats().x, getCoordinats().y);
 
     }
-
+    public String getName() {return name;}
 
 }
