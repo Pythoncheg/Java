@@ -6,7 +6,11 @@ public interface GameInterface {
     String getName();
 
     String getInfo();
+
+
+    int getHp();
+
     int getSpeed();
 
-    void Step(ArrayList<BaseClass> ally, ArrayList<BaseClass> enemy);
+    void step(ArrayList<BaseClass> ally, ArrayList<BaseClass> enemy);
 }

@@ -1,7 +1,5 @@
 package OOP.PlaceOfWar.units;
 
-import java.util.ArrayList;
-
 public class Crossbowman extends Archer {
     protected String name;
 
@@ -16,7 +14,7 @@ public class Crossbowman extends Archer {
     @Override
     public String getInfo() {
         return String.format(" Я арбалетчик %s, Здоровье: %d, Скорость: %d, Координаты: Х: %d, Y: %d.",
-                name, getHp(), getSpeed(), getCoordinats().x, getCoordinats().y);
+                name, getHp(), getSpeed(), getCoordinats().coordX, getCoordinats().coordY);
     }
     public String getName() {return name;}
 

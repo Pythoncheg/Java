@@ -14,12 +14,12 @@ public class Spearman extends Warrior {
     @Override
     public String getInfo() {
         return String.format(" Я копейщик %s, Здоровье: %d, Скорость: %d, Координаты: Х: %d, Y: %d.",
-                name, getHp(), getSpeed(), getCoordinats().x, getCoordinats().y);
+                name, getHp(), getSpeed(), getCoordinats().coordX, getCoordinats().coordY);
     }
 
 
     @Override
-    public void Step(ArrayList ally, ArrayList enemy) {
+    public void step(ArrayList ally, ArrayList enemy) {
 
     }
 }

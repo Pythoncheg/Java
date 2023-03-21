@@ -10,7 +10,7 @@ public abstract class BaseClass implements GameInterface {
     protected int attack;
     protected int protection;
     private int speed;
-    private Coordinats coordinats;
+    private static Vector2D vector2D;
     protected int flag;
     protected String status;
 
@@ -21,14 +21,13 @@ public abstract class BaseClass implements GameInterface {
         this.protection = protection;
         this.attack = attack;
         this.speed = speed;
-        this.coordinats = new Coordinats(x, y);
+        this.vector2D = new Vector2D(x, y);
         this.flag = flag;
         this.maxHp = hp;
         status = "Stand";
 
 
     }
-
     public int getHp() {
         return this.hp;
     }
@@ -37,8 +36,8 @@ public abstract class BaseClass implements GameInterface {
         return this.speed;
     }
 
-    public Coordinats getCoordinats() {
-        return coordinats;
+    public Vector2D getCoordinats() {
+        return vector2D;
     }
 
 
@@ -59,25 +58,32 @@ public abstract class BaseClass implements GameInterface {
         double min = 100;
         int index = 0;
         for (int i = 0; i < list.size(); i++) {
-            if (min > coordinats.getDistance(list.get(i).coordinats)) {
+            if (list.get(i).status.equals("Die"));
+            else if
+            (min > vector2D.getDistance(list.get(i).vector2D)) {
                 index = i;
-                min = coordinats.getDistance(list.get(i).coordinats);
+                min = vector2D.getDistance(list.get(i).vector2D);
             }
         }
         return index;
     }
 
     @Override
-    public void Step(ArrayList<BaseClass> ally, ArrayList<BaseClass> enemy) {
+    public void step(ArrayList<BaseClass> ally, ArrayList<BaseClass> enemy) {
     }
 
-    public int findWounded(ArrayList<BaseClass> team) {
+    public BaseClass findWounded(ArrayList<BaseClass> team) {
         int index = 0;
+        double avgHp = Double.MAX_VALUE;
         for (int i = 0; i < team.size(); i++) {
-            if (team.get(i).hp < team.get(i).maxHp) {
-                index += i;
+            if (avgHp > team.get(i).maxHp - team.get(i).hp) {
+                index = i;
+                avgHp = team.get(i).maxHp - team.get(i).hp;
             }
         }
-        return index;
+        return team.get(index);
     }
+    public boolean getSupport(){
+        return false;
+    };
 }
