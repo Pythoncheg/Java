@@ -31,7 +31,7 @@ public class View {
         String out = "| ";
         for (BaseClass human: Main.all_units) {
             if (human.getCoordinats()[0] == x && human.getCoordinats()[1] == y){
-                if (BaseClass. == 0) {
+                if (human.getHp() == 0) {
                     out = "|" + (AnsiColors.ANSI_RED + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
                     break;
                 }
@@ -53,10 +53,10 @@ public class View {
         System.out.print("_".repeat(l[0]*2));
         System.out.println("");
         System.out.print(top10 + "    ");
-        System.out.print("Blue side");
+        System.out.print("Команда синих");
         //for (int i = 0; i < l[0]-9; i++)
         System.out.print(" ".repeat(l[0]-9));
-        System.out.println(":\tGreen side");
+        System.out.println(":\tКоманда зеленых");
         for (int i = 1; i < 11; i++) {
             System.out.print(getChar(1, i));
         }

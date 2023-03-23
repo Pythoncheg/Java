@@ -3,28 +3,42 @@ package OOP.PlaceOfWar.units;
 import java.util.ArrayList;
 
 public abstract class BaseClass implements GameInterface {
+    protected String name;
     protected int hp;
     protected int maxHp;
     protected int min_damage;
     protected int max_damage;
     protected int attack;
     protected int protection;
-    private int speed;
-    private static Vector2D vector2D;
-    protected int flag;
+    protected int speed;
+    protected static Vector2D coords;
     protected String status;
+    protected static int heroCnt;
 
-    public BaseClass(int hp, int min_damage, int max_damage, int protection, int attack, int speed, int x, int y, int flag) {
+    @Override
+    public String toString() {
+        return name +
+                " H:" + Math.round(hp) +
+                " D:" + protection +
+                " A:" + attack +
+                " Dmg:" + Math.round(Math.abs((min_damage + max_damage) / 2)) +
+                " " + status;
+    }
+
+    public BaseClass(String name, int hp, int min_damage, int max_damage, int protection, int attack, int speed, int x, int y) {
+        this.name = name;
         this.hp = hp;
         this.min_damage = min_damage;
         this.max_damage = max_damage;
         this.protection = protection;
         this.attack = attack;
         this.speed = speed;
-        this.vector2D = new Vector2D(x, y);
-        this.flag = flag;
+        this.coords = new Vector2D(x, y);
         this.maxHp = hp;
         status = "Stand";
+        heroCnt++;
+
+
 
 
     }
@@ -36,9 +50,7 @@ public abstract class BaseClass implements GameInterface {
         return this.speed;
     }
 
-    public Vector2D getCoordinats() {
-        return vector2D;
-    }
+    public int[] getCoordinats() {return new int[]{coords.coordX, coords.coordY};}
 
 
     protected void getDamage(float damage) {
@@ -50,9 +62,6 @@ public abstract class BaseClass implements GameInterface {
         if (hp > maxHp) hp = maxHp;
     }
 
-    public int getFlag() {
-        return flag;
-    }
 
     protected int findNear(ArrayList<BaseClass> list) {
         double min = 100;
@@ -60,9 +69,9 @@ public abstract class BaseClass implements GameInterface {
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).status.equals("Die"));
             else if
-            (min > vector2D.getDistance(list.get(i).vector2D)) {
+            (min > coords.getDistance(list.get(i).coords)) {
                 index = i;
-                min = vector2D.getDistance(list.get(i).vector2D);
+                min = coords.getDistance(list.get(i).coords);
             }
         }
         return index;
@@ -85,5 +94,10 @@ public abstract class BaseClass implements GameInterface {
     }
     public boolean getSupport(){
         return false;
-    };
+    }
+
+    @Override
+    public StringBuilder getInfo() {
+        return new StringBuilder("");
+    }
 }
