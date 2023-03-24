@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public abstract class Manaman extends BaseClass{
     protected int magic;
 
-    public Manaman(String name, int hp, int min_damage, int max_damage, int protection, int attack, int magic, int speed, int x, int y){
-        super(name, hp, min_damage, max_damage, protection, attack, speed, x, y);
+    public Manaman(String name, float hp, int maxHp, int min_damage, int max_damage, int protection, int attack, int magic, int speed, int posX, int posY){
+        super(name, hp, maxHp, min_damage, max_damage, protection, attack, speed, posX, posY);
         this.magic=magic;
     }
     @Override

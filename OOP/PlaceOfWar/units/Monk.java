@@ -3,7 +3,7 @@ package OOP.PlaceOfWar.units;
 public class Monk extends Manaman {
 
     public Monk(String name, Vector2D coords){
-        super(name,30, -4, -4, 7, 12, 1, 5, coords.coordX, coords.coordY);
+        super(name,100, 100, -4, -4, 7, 12, 1, 5, coords.posX, coords.posY);
     }
 
 
@@ -17,8 +17,6 @@ public class Monk extends Manaman {
                 .append("\t| ATK:\t").append(Monk.super.attack)
                 .append("\t| HP:\t").append(Monk.super.hp)
                 .append(" \t| MP:\t").append(Monk.super.magic)
-                .append("\t|").append("\t| (X.Y) : ").append(Monk.super.coords.coordX).append(".").append(Monk.super.coords.coordY);
+                .append("\t|").append("\t| (X.Y) : ").append(Monk.super.coords.posX).append(".").append(Monk.super.coords.posY);
     }
-    public String getName() {return name;}
-
 }

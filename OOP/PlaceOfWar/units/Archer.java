@@ -7,8 +7,8 @@ public abstract  class Archer extends BaseClass{
 
 
 
-    public Archer(String name, int hp, int min_damage, int max_damage, int protection, int attack, int shots, int speed, int x, int y) {
-        super(name, hp, min_damage, max_damage, protection, attack, speed, x, y);
+    public Archer(String name, float hp,int maxHp, int min_damage, int max_damage, int protection, int attack, int shots, int speed, int posX, int posY) {
+        super(name, hp, maxHp, min_damage, max_damage, protection, attack, speed, posX, posY);
         this.shots=shots;
     }
     @Override

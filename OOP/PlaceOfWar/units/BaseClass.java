@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public abstract class BaseClass implements GameInterface {
     protected String name;
-    protected int hp;
+    protected float hp;
     protected int maxHp;
     protected int min_damage;
     protected int max_damage;
     protected int attack;
     protected int protection;
     protected int speed;
-    protected static Vector2D coords;
+    protected Vector2D coords;
     protected String status;
     protected static int heroCnt;
 
@@ -19,13 +19,13 @@ public abstract class BaseClass implements GameInterface {
     public String toString() {
         return name +
                 " H:" + Math.round(hp) +
-                " D:" + protection +
-                " A:" + attack +
+                " D:" + coords.posX +
+                " A:" + coords.posY +
                 " Dmg:" + Math.round(Math.abs((min_damage + max_damage) / 2)) +
                 " " + status;
     }
-
-    public BaseClass(String name, int hp, int min_damage, int max_damage, int protection, int attack, int speed, int x, int y) {
+    public int[] getCoords() {return new int[]{coords.posX, coords.posY};}
+    protected BaseClass(String name, float hp, int maxHp, int min_damage, int max_damage, int protection, int attack, int speed, int posX, int posY) {
         this.name = name;
         this.hp = hp;
         this.min_damage = min_damage;
@@ -33,8 +33,8 @@ public abstract class BaseClass implements GameInterface {
         this.protection = protection;
         this.attack = attack;
         this.speed = speed;
-        this.coords = new Vector2D(x, y);
-        this.maxHp = hp;
+        this.coords = new Vector2D(posX, posY);
+        this.maxHp = maxHp;
         status = "Stand";
         heroCnt++;
 
@@ -42,16 +42,13 @@ public abstract class BaseClass implements GameInterface {
 
 
     }
-    public int getHp() {
-        return this.hp;
+    public float getHp() {
+        return hp;
     }
 
     public int getSpeed() {
-        return this.speed;
+        return speed;
     }
-
-    public int[] getCoordinats() {return new int[]{coords.coordX, coords.coordY};}
-
 
     protected void getDamage(float damage) {
         this.hp -= damage;
@@ -62,16 +59,13 @@ public abstract class BaseClass implements GameInterface {
         if (hp > maxHp) hp = maxHp;
     }
 
-
-    protected int findNear(ArrayList<BaseClass> list) {
-        double min = 100;
+    public int findNear(ArrayList<BaseClass> enemy){
         int index = 0;
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).status.equals("Die"));
-            else if
-            (min > coords.getDistance(list.get(i).coords)) {
+        double min = Double.MAX_VALUE;
+        for (int i = 0; i < enemy.size(); i++) {
+            if(min > coords.getDistance(enemy.get(i).coords) && !enemy.get(i).status.equals("Die")) {
                 index = i;
-                min = coords.getDistance(list.get(i).coords);
+                min = coords.getDistance(enemy.get(i).coords);
             }
         }
         return index;

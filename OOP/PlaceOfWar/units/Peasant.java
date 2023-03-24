@@ -7,7 +7,7 @@ public class Peasant extends BaseClass {
     protected int support = 1;
 
     public Peasant(String name, Vector2D coords){
-        super(name, 1, 1, 1, 1, 3, 3, coords.coordX, coords.coordY);
+        super(name, 100, 100, 1, 1, 1, 3, 3, coords.posX, coords.posY);
 
     }
 
@@ -20,7 +20,7 @@ public class Peasant extends BaseClass {
                 .append("\t| ATK:\t").append(Peasant.super.attack)
                 .append("\t| HP:\t").append(Peasant.super.hp)
                 .append(" \t| Arrows: ").append(Peasant.this.support)
-                .append("\t|").append("\t| (X.Y) : ").append(Peasant.super.coords.coordX).append(".").append(Peasant.super.coords.coordY);
+                .append("\t|").append("\t| (X.Y) : ").append(Peasant.super.coords.posX).append(".").append(Peasant.super.coords.posY);
     }
     public String getName() {return name;}
 
