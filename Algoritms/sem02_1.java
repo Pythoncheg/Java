@@ -3,22 +3,29 @@ package Algoritms;
 import java.util.Random;
 
 import static Algoritms.sem02_2.quickSort;
+import static Algoritms.sem02_4.binarySearch;
+import static Algoritms.sem02_4.linearSearch;
 
 public class sem02_1 {
     public static void main(String[] args) {
         int[] array = CreateArray(1000);
+//        long start = System.nanoTime();
+//        bubbleSort(array);
+//        long end = System.nanoTime();
+//        System.out.println(end - start);
+//        array = CreateArray(25000);
+//        start = System.nanoTime();
+//        ShakerSort(array);
+//        end = System.nanoTime();
+//        System.out.println(end - start);
+//        array = CreateArray(25000);
+        quickSort(array, 0, array.length-1);
         long start = System.nanoTime();
-        bubbleSort(array);
+        linearSearch(array, 10);
         long end = System.nanoTime();
         System.out.println(end - start);
-        array = CreateArray(1000);
         start = System.nanoTime();
-        ShakerSort(array);
-        end = System.nanoTime();
-        System.out.println(end - start);
-        array = CreateArray(1000);
-        start = System.nanoTime();
-        quickSort(array, 0, array.length-1);
+        binarySearch(array, 10);
         end = System.nanoTime();
         System.out.println(end - start);
     }
@@ -26,7 +33,7 @@ public class sem02_1 {
         int[] array = new int[n];
         Random rand = new Random();
         for (int i = 0; i < n; i++) {
-            array[i] = rand.nextInt(100);
+            array[i] = rand.nextInt(250);
         }
         return array;
     }
