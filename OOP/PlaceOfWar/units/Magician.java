@@ -13,7 +13,7 @@ public class Magician extends Manaman {
     @Override
     public StringBuilder getInfo() {
         StringBuilder builder = new StringBuilder();
-        return builder.append("Маг: \t").append(Magician.super.name)
+        return builder.append("Хилер: \t").append(Magician.super.name)
                 .append("\t| ATK:\t").append(Magician.super.attack)
                 .append("\t| HP:\t").append(Magician.super.hp)
                 .append(" \t| MP:\t").append(Magician.super.magic)
