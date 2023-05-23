@@ -1,6 +1,6 @@
 package Algoritms;
 
-public class sem02_4 {
+public class Sem02_4 {
 
     public static int linearSearch(int[] arr, int key) {
         for (int i = 0; i < arr.length; i++) {

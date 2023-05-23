@@ -2,23 +2,23 @@ package Algoritms;
 
 import java.util.Random;
 
-import static Algoritms.sem02_2.quickSort;
-import static Algoritms.sem02_4.binarySearch;
-import static Algoritms.sem02_4.linearSearch;
+import static Algoritms.Sem02_2.quickSort;
+import static Algoritms.Sem02_4.binarySearch;
+import static Algoritms.Sem02_4.linearSearch;
 
-public class sem02_1 {
+public class Sem02_1 {
     public static void main(String[] args) {
-        int[] array = CreateArray(1000);
-//        long start = System.nanoTime();
-//        bubbleSort(array);
-//        long end = System.nanoTime();
-//        System.out.println(end - start);
-//        array = CreateArray(25000);
-//        start = System.nanoTime();
-//        ShakerSort(array);
-//        end = System.nanoTime();
-//        System.out.println(end - start);
-//        array = CreateArray(25000);
+        int[] array = createArray(1000);
+        long start = System.nanoTime();
+        bubbleSort(array);
+        long end = System.nanoTime();
+        System.out.println(end - start);
+        array = createArray(25000);
+        start = System.nanoTime();
+        shakerSort(array);
+        end = System.nanoTime();
+        System.out.println(end - start);
+        array = createArray(25000);
         quickSort(array, 0, array.length-1);
         long start = System.nanoTime();
         linearSearch(array, 10);
@@ -29,7 +29,7 @@ public class sem02_1 {
         end = System.nanoTime();
         System.out.println(end - start);
     }
-    public static int[] CreateArray(int n) {
+    public static int[] createArray(int n) {
         int[] array = new int[n];
         Random rand = new Random();
         for (int i = 0; i < n; i++) {
@@ -53,7 +53,7 @@ public class sem02_1 {
                 }
             }
         }
-    public static void ShakerSort(int[] values) {
+    public static void shakerSort(int[] values) {
         if (values.length == 0) {
             return;
         }

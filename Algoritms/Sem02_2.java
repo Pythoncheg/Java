@@ -1,7 +1,6 @@
 package Algoritms;
-import Algoritms.sem02_1.*;
 
-public class sem02_2 {
+public class Sem02_2 {
 
     public static void quickSort(int[] arr, int left, int right) {
         if (left < right) {
