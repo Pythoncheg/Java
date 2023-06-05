@@ -1,33 +1,41 @@
 package Algoritms;
 
+import java.util.Arrays;
 import java.util.Random;
 
+import static Algoritms.HomeWork02.heapSort;
 import static Algoritms.Sem02_2.quickSort;
 import static Algoritms.Sem02_4.binarySearch;
 import static Algoritms.Sem02_4.linearSearch;
 
 public class Sem02_1 {
     public static void main(String[] args) {
-        int[] array = createArray(1000);
+        int[] array = createArray(150000);
+//        long start = System.nanoTime();
+//        bubbleSort(array);
+//        long end = System.nanoTime();
+//        System.out.println(end - start);
+//        array = createArray(25000);
+//        start = System.nanoTime();
+//        shakerSort(array);
+//        end = System.nanoTime();
+//        System.out.println(end - start);
+//        array = createArray(25000);
+//        quickSort(array, 0, array.length-1);
+//        long start = System.nanoTime();
+//        linearSearch(array, 10);
+//        long end = System.nanoTime();
+//        System.out.println(end - start);
+//        array = createArray(1000);
+//        start = System.nanoTime();
+//        binarySearch(array, 10);
+//        end = System.nanoTime();
+//        System.out.println(end - start);
         long start = System.nanoTime();
-        bubbleSort(array);
+        heapSort(array);
         long end = System.nanoTime();
         System.out.println(end - start);
-        array = createArray(25000);
-        start = System.nanoTime();
-        shakerSort(array);
-        end = System.nanoTime();
-        System.out.println(end - start);
-        array = createArray(25000);
-        quickSort(array, 0, array.length-1);
-        long start = System.nanoTime();
-        linearSearch(array, 10);
-        long end = System.nanoTime();
-        System.out.println(end - start);
-        start = System.nanoTime();
-        binarySearch(array, 10);
-        end = System.nanoTime();
-        System.out.println(end - start);
+        System.out.println(Arrays.toString(array));
     }
     public static int[] createArray(int n) {
         int[] array = new int[n];

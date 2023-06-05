@@ -23,7 +23,7 @@ public class Sem02_2 {
         return i + 1;
     }
 
-    private static void swap(int[] arr, int i, int j) {
+    public static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
