@@ -10,7 +10,7 @@ import static Algoritms.Sem02_4.linearSearch;
 
 public class Sem02_1 {
     public static void main(String[] args) {
-        int[] array = createArray(150000);
+        int[] array = createArray(15000000);
 //        long start = System.nanoTime();
 //        bubbleSort(array);
 //        long end = System.nanoTime();
@@ -35,13 +35,13 @@ public class Sem02_1 {
         heapSort(array);
         long end = System.nanoTime();
         System.out.println(end - start);
-        System.out.println(Arrays.toString(array));
+//        System.out.println(Arrays.toString(array));
     }
     public static int[] createArray(int n) {
         int[] array = new int[n];
         Random rand = new Random();
         for (int i = 0; i < n; i++) {
-            array[i] = rand.nextInt(250);
+            array[i] = rand.nextInt(250000);
         }
         return array;
     }
