@@ -1,8 +1,8 @@
-package HomeWork_05;
+package HomeWork_04;
 
 public class Main {
     public static void main(String[] args) {
-        Mapa <Integer, String> mapa = new Mapa<>();
+        Mapa<Integer, String> mapa = new Mapa<>();
         System.out.println(mapa.put(1, "a"));
         System.out.println(mapa.put(2, "b"));
         System.out.println(mapa.put(3, "c"));

@@ -1,4 +1,4 @@
-package HomeWork_05;
+package HomeWork_04;
 
 public class Mapa<K, V> {
     Node<K, V>[] nodes = new Node[16];
@@ -85,9 +85,10 @@ public class Mapa<K, V> {
         return null;
     }
 
-        public int size() {
+    public int size() {
         return nodes.length;
     }
+
     public boolean containsValue(Integer value) {
         for (int i = 0; i < nodes.length; i++) {
             Node node = nodes[i];
