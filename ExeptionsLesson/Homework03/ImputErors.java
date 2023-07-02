@@ -2,7 +2,7 @@ package ExeptionsLesson.Homework03;
 
 public class ImputErors {
     public static void eror(int key) {
-        switch (key){
+        switch (key) {
             case -1:
                 System.out.println("Вы ничего не ввели!");
                 break;
