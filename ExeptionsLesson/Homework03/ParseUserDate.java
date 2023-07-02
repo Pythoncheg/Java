@@ -1,5 +1,6 @@
 package ExeptionsLesson.Homework03;
 
+import java.text.ParseException;
 import java.util.HashMap;
 
 public class ParseUserDate {
@@ -36,11 +37,84 @@ public class ParseUserDate {
                     }
                 } else {
                     if (Integer.parseInt(arrDate[2]) % 4 == 0) { //проверяем високосный ли год
-
+                        if (Integer.parseInt(arrDate[1]) == 1 || // Проверяем длинные месяцы на правильность
+                                Integer.parseInt(arrDate[1]) == 3 ||
+                                Integer.parseInt(arrDate[1]) == 5 ||
+                                Integer.parseInt(arrDate[1]) == 7 ||
+                                Integer.parseInt(arrDate[1]) == 9 ||
+                                Integer.parseInt(arrDate[1]) == 10 ||
+                                Integer.parseInt(arrDate[1]) == 12) {
+                            if (Integer.parseInt(arrDate[0]) <= 31) {
+                                flag = false;
+                            }
+                        } else if (Integer.parseInt(arrDate[1]) == 2) { // Проверяю Февраль на правильность
+                            if (Integer.parseInt(arrDate[0]) <= 29) {
+                                flag = false;
+                            }
+                        } else if (Integer.parseInt(arrDate[1]) == 4 || // Проверяю короткие месяцы на правильность
+                                Integer.parseInt(arrDate[1]) == 6 ||
+                                Integer.parseInt(arrDate[1]) == 8 ||
+                                Integer.parseInt(arrDate[1]) == 11) {
+                            if (Integer.parseInt(arrDate[0]) <= 30) {
+                                flag = false;
+                            }
+                        }
+                    } else {
+                        if (Integer.parseInt(arrDate[1]) == 1 ||  // Проверяем не високосные года
+                                Integer.parseInt(arrDate[1]) == 3 ||
+                                Integer.parseInt(arrDate[1]) == 5 ||
+                                Integer.parseInt(arrDate[1]) == 7 ||
+                                Integer.parseInt(arrDate[1]) == 9 ||
+                                Integer.parseInt(arrDate[1]) == 10 ||
+                                Integer.parseInt(arrDate[1]) == 12) {
+                            if (Integer.parseInt(arrDate[0]) < 32) {
+                                flag = false;
+                            }
+                        } else if (Integer.parseInt(arrDate[2]) == 2) {
+                            if (Integer.parseInt(arrDate[0]) < 29) {
+                                flag = false;
+                            }
+                        } else if (Integer.parseInt(arrDate[1]) == 4 ||
+                                Integer.parseInt(arrDate[1]) == 6 ||
+                                Integer.parseInt(arrDate[1]) == 8 ||
+                                Integer.parseInt(arrDate[1]) == 11) {
+                            if (Integer.parseInt(arrDate[0]) < 31) {
+                                flag = false;
+                            }
+                        }
                     }
+                    if (!flag) {
+                        dataDict.put("date", i);
+                    } else {
+                        try {
+                            throw new DataExeption();
+                        } catch (DataExeption e) {
+                            e.dataExeption(i);
+                        }
+                    }
+                }
+            } else if (i.matches("[0-9]+")) {
+                dataDict.put("telNumber", i);
+            } else if (i.matches("[A-Za-z]+")) {
+                stringBuilder.append(i + " ");
+            }else {
+                try {
+                    throw new ParseExeption();
+                } catch (ParseExeption e) {
+                    e.parseException(i);
                 }
             }
 
         }
+        String[] fio = String.valueOf(stringBuilder).split(" ");
+        if (fio.length == 3) {
+            dataDict.put("lastName", fio[0]);
+            dataDict.put("firstName", fio[1]);
+            dataDict.put("fatherName", fio[2]);
+        }
+        return dataDict;
     }
 }
+
+
+
